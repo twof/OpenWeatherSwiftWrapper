@@ -26,6 +26,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYq-RU-pDj">
                                 <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="weatherButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0S-J3-agY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDu-RO-wbv">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -84,6 +87,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UUE-JP-1mI"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="jDu-RO-wbv" id="3wN-GI-6jR"/>
+                        <outlet property="locationTextField" destination="AP6-fq-5ds" id="feh-Qg-9gL"/>
+                        <outlet property="maxTempLabel" destination="q7m-b2-rXY" id="YAc-Bu-3Qj"/>
+                        <outlet property="minTempLabel" destination="Hex-FS-Beb" id="TRP-GG-ls2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,7 +111,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="02t-AY-RKE" id="eXE-y8-yaw">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -133,7 +142,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7E-CI-NtY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74.400000000000006" y="133.5832083958021"/>
+            <point key="canvasLocation" x="102" y="134"/>
         </scene>
     </scenes>
 </document>
