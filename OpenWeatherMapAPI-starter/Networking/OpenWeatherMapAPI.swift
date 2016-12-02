@@ -12,7 +12,7 @@ class OpenWeatherMapAPI {
     
     func getCurrentWeather(location: String, temperatureUnit: TemeratureUnit = .fahrenheit, callback: @escaping (Weather?, Error?) -> ()) {
         
-        let params = ["q": location, "units": translateUnit(unitTemp: temperatureUnit)]
+        let params = ["q": location, "units": temperatureUnit.rawValue]
     
          makeAPICall(url: constructAPIURL(baseURL: BaseURLs.currentWeather, params: params)) { (jsonString, error) in
             if let jsonString = jsonString {
@@ -70,20 +70,7 @@ class OpenWeatherMapAPI {
         
         return URL(string: newURL)!
     }
-    
-    private func translateUnit(unitTemp: TemeratureUnit) -> String{
-        var unitString: String
-        switch unitTemp {
-        case .celsius:
-            unitString = "metric"
-        case .fahrenheit:
-            unitString = "imperial"
-        default:
-            unitString = "anything"
-        }
-        
-        return unitString
-    }
+
     
 //    private func dictionaryToWeatherArray(dict: [String: Any], unit: TemeratureUnit) -> [Weather] {
 //        if let httpCode = Int((dict["cod"] as? String)!) {

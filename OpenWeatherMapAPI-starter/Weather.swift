@@ -13,10 +13,10 @@ struct Context: MapContext {
     var unit: TemeratureUnit = .fahrenheit
 }
 
-enum TemeratureUnit {
-    case fahrenheit
-    case celsius
-    case kelvin
+enum TemeratureUnit: String {
+    case fahrenheit = "imperial"
+    case celsius = "metric"
+    case kelvin = "anything"
 }
 
 class Weather: Mappable{
