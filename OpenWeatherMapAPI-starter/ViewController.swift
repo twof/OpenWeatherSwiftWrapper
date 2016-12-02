@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController{
   
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
@@ -28,8 +28,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 print(error)
             }else{
                 DispatchQueue.main.async {
-                    self.maxTempLabel.text = "Max: \(weather!.tempMax)"
-                    self.minTempLabel.text = "Min: \(weather!.tempMin)"
+                    self.maxTempLabel.text = "Max: \(weather!.tempMax ?? 0)"
+                    self.minTempLabel.text = "Min: \(weather!.tempMin ?? 0)"
                     self.descriptionLabel.text = weather?.description ?? "?"
                 }
             }
@@ -37,8 +37,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension ViewController {
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         openWeatherMapAPI.getCurrentWeather(location: locationTextField.text!) { (weather, error) in
             
